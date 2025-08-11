@@ -91,4 +91,5 @@ const applicationsSlice = createSlice({
   },
 });
 export const { clearError, clearSuccess } = applicationsSlice.actions;
+export { submitApplication, fetchApplications };
 export default applicationsSlice.reducer;

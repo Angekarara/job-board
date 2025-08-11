@@ -1,6 +1,5 @@
 import { http, HttpResponse } from "msw";
 
-// Mock data
 const mockJobs = [
   {
     id: "1",

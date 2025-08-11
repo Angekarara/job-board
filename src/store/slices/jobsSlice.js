@@ -21,7 +21,7 @@ const fetchJobs = createAsyncThunk(
 
 const fetchJobById = createAsyncThunk(
   "jobs/fetchJobById",
-  async (jobId, {rejectWithValue}) => {
+  async (jobId, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/jobs/${jobId}`);
 
@@ -108,4 +108,5 @@ const jobSlice = createSlice({
 
 export const { setFilters, clearFilters, clearCurrentJob, clearError } =
   jobSlice.actions;
+export {fetchJobs, fetchJobById}; 
 export default jobSlice.reducer;

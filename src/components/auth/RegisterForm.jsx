@@ -81,13 +81,17 @@ const RegisterForm = () => {
     dispatch(clearError());
   };
 
-    return (
-       <div className="max-w-md mx-auto bg-accent rounded-lg shadow-md p-6">
+  return (
+    <div className="max-w-md mx-auto bg-accent rounded-lg shadow-md p-6">
       <h2 className="text-2xl font-bold text-center text-primary">
         Create Account
       </h2>
 
-      <ErrorMessage message={error} onDismiss={handleErrorDismiss} className="mb-4" />
+      <ErrorMessage
+        message={error}
+        onDismiss={handleErrorDismiss}
+        className="mb-4"
+      />
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <Input
@@ -146,14 +150,17 @@ const RegisterForm = () => {
 
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-600">
-          Already have an account?{' '}
-          <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="font-medium text-blue-600 hover:text-blue-500"
+          >
             Sign in
           </Link>
         </p>
       </div>
     </div>
-  )
+  );
 };
 
 export default RegisterForm;

@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import JobCard from "./JobCard";
 import LoadingSpinner from "../common/LoadingSpinner";
@@ -27,8 +26,8 @@ const JobList = () => {
   if (jobs.length === 0) {
     return (
       <div className="text-center py-12">
-        <div className="text-gray-500 text-lg">No jobs found</div>
-        <p className="text-gray-400 mt-2">Try adjusting your search criteria</p>
+        <div className="text-primary text-lg">No jobs found</div>
+        <p className="text-primary mt-2">Try adjusting your search criteria</p>
       </div>
     );
   }

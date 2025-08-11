@@ -9,10 +9,9 @@ const Button = ({
   ...props
 }) => {
   const variantClasses = {
-    primary:
-      "text-white bg-primary focus:ring-blue-300 disabled:bg-blue-300",
+    primary: "text-white bg-primary disabled:bg-blue-300",
     secondary:
-      "text-blue-700 bg-white border border-blue-700 hover:bg-blue-50 focus:ring-blue-300",
+      "text-white bg-[#e17654]",
     danger:
       "text-white bg-red-600 hover:bg-red-700 focus:ring-red-300 disabled:bg-red-300",
   };
@@ -24,7 +23,7 @@ const Button = ({
   };
 
   const baseClasses =
-    "font-medium rounded-lg focus: ring-4 focus: outline-none transition-colors";
+    "font-medium rounded-lg focus:ring-4 transition-colors";
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
   return (

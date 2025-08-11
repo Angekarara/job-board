@@ -23,7 +23,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-       navigate("/");
+      navigate("/");
     }
   }, [isAuthenticated, navigate]);
 

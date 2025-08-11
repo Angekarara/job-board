@@ -52,17 +52,15 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-const initialState = {
-  user: null,
-  token: localStorage.getItem("token"),
-  isLoading: false,
-  error: null,
-  isAuthenticated: !!localStorage.getItem("token"),
-};
-
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: {
+    user: null,
+    token: localStorage.getItem("token"),
+    isLoading: false,
+    error: null,
+    isAuthenticated: !!localStorage.getItem("token"),
+  },
   reducers: {
     logout: (state) => {
       state.user = null;

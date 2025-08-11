@@ -5,7 +5,7 @@ const fetchJobs = createAsyncThunk(
   async (params = {}, { rejectWithValue }) => {
     try {
       const queryParams = new URLSearchParams(params).toString();
-      const response = await fetch(`api/jobs${queryParams}`);
+      const response = await fetch(`/api/jobs${queryParams}`);
 
       if (!response.ok) {
         throw new Error("failed to fetch");
@@ -21,9 +21,9 @@ const fetchJobs = createAsyncThunk(
 
 const fetchJobById = createAsyncThunk(
   "jobs/fetchJobById",
-  async (jobId, rejectWithValue) => {
+  async (jobId, {rejectWithValue}) => {
     try {
-      const response = await fetch(`api/jobs/${jobId}`);
+      const response = await fetch(`/api/jobs/${jobId}`);
 
       if (!response) {
         throw new Error("fetch failed");

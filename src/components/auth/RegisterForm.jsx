@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validateEmail, validatePassword } from "../../utils/validation";
 import { clearError, registerUser } from "../../store/slices/authSlice";
+import ErrorMessage from "../common/ErrorMessage";
+import Input from "../common/Input";
+import Button from "../common/Button";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();

@@ -57,7 +57,8 @@ const mockJobs = [
   },
 ];
 
-const mockUsers = [
+// Load users from localStorage or use default if none exists
+const mockUsers = JSON.parse(localStorage.getItem("mockUsers")) || [
   {
     id: "1",
     email: "test@example.com",
@@ -67,7 +68,8 @@ const mockUsers = [
   },
 ];
 
-let applications = [];
+// Load applications from localStorage or use empty array if none exists
+let applications = JSON.parse(localStorage.getItem("applications")) || [];
 
 export const handlers = [
   http.post("/api/auth/login", async ({ request }) => {
@@ -113,21 +115,28 @@ export const handlers = [
 
     mockUsers.push(newUser);
 
+    // Save updated users to localStorage
+    localStorage.setItem("mockUsers", JSON.stringify(mockUsers));
+
     return HttpResponse.json({
       user: { id: newUser.id, email: newUser.email, name: newUser.name },
       token: newUser.token,
     });
   }),
 
-  http.get("/api/jobs", ({ request }) => {
+  http.get("/api/jobs", async ({ request }) => {
+    // Ensure we have a valid URL to parse
     const url = new URL(request.url);
+
+    // Get search parameters with defaults
     const page = parseInt(url.searchParams.get("page")) || 1;
     const limit = parseInt(url.searchParams.get("limit")) || 10;
     const search = url.searchParams.get("search") || "";
     const location = url.searchParams.get("location") || "";
     const type = url.searchParams.get("type") || "";
 
-    let filteredJobs = mockJobs;
+    // Start with all jobs
+    let filteredJobs = [...mockJobs];
 
     if (search) {
       filteredJobs = filteredJobs.filter(
@@ -147,34 +156,39 @@ export const handlers = [
       filteredJobs = filteredJobs.filter((job) => job.type === type);
     }
 
+    // Calculate pagination
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
     const paginatedJobs = filteredJobs.slice(startIndex, endIndex);
 
-    return HttpResponse.json({
-      jobs: paginatedJobs,
-      total: filteredJobs.length,
-      currentPage: page,
-      totalPages: Math.ceil(filteredJobs.length / limit),
-    });
-  }),
-
-  http.get("api/jobs/:id", ({ params }) => {
-    const job = mockJobs.find((j) => j.id === params.id);
-
-    if (job) {
-      return HttpResponse.json();
-    }
-
+    // Return paginated results with metadata
     return HttpResponse.json(
       {
-        message: "job not found",
+        jobs: paginatedJobs,
+        total: filteredJobs.length,
+        currentPage: page,
+        totalPages: Math.ceil(filteredJobs.length / limit),
       },
-      { status: 404 }
+      { status: 200 }
     );
   }),
 
-  http.post("api/applications", async ({ request }) => {
+  http.get("/api/jobs/:id", ({ params }) => {
+    const job = mockJobs.find((j) => j.id === params.id);
+
+    if (!job) {
+      return HttpResponse.json(
+        {
+          message: "Job not found",
+        },
+        { status: 404 }
+      );
+    }
+
+    return HttpResponse.json(job);
+  }),
+
+  http.post("/api/applications", async ({ request }) => {
     const applicationData = await request.json();
 
     const newApplication = {
@@ -185,11 +199,13 @@ export const handlers = [
     };
 
     applications.push(newApplication);
+    // Save applications to localStorage
+    localStorage.setItem("applications", JSON.stringify(applications));
 
     return HttpResponse.json(newApplication, { status: 201 });
   }),
 
-  http.get("api/application", () => {
+  http.get("/api/applications", () => {
     return HttpResponse.json(applications);
   }),
 ];

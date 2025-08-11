@@ -5,7 +5,7 @@ const fetchJobs = createAsyncThunk(
   async (params = {}, { rejectWithValue }) => {
     try {
       const queryParams = new URLSearchParams(params).toString();
-      const response = await fetch(`/api/jobs${queryParams}`);
+      const response = await fetch(`/api/jobs?${queryParams}`);
 
       if (!response.ok) {
         throw new Error("failed to fetch");
@@ -25,8 +25,8 @@ const fetchJobById = createAsyncThunk(
     try {
       const response = await fetch(`/api/jobs/${jobId}`);
 
-      if (!response) {
-        throw new Error("fetch failed");
+      if (!response.ok) {
+        throw new Error("Failed to fetch job details");
       }
 
       const data = await response.json();
@@ -108,5 +108,5 @@ const jobSlice = createSlice({
 
 export const { setFilters, clearFilters, clearCurrentJob, clearError } =
   jobSlice.actions;
-export {fetchJobs, fetchJobById}; 
+export { fetchJobs, fetchJobById };
 export default jobSlice.reducer;

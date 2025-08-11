@@ -70,7 +70,7 @@ const JobDetails = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-secondary rounded-lg shadow-md p-8">
+      <div className="bg-secondary rounded-lg shadow-xl p-8">
         <div className="border-b border-tertiary pb-6 mb-6">
           <div className="flex justify-between items-start mb-4">
             <div>

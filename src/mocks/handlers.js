@@ -4,60 +4,239 @@ const mockJobs = [
   {
     id: "1",
     title: "Frontend Developer",
-    company: "Tech Corp",
-    location: "Remote",
+    company: "Andela Rwanda",
+    location: "Kigali, Rwanda",
     type: "Full-time",
-    salary: "$60,000 - $80,000",
+    salary: "RWF 6.5M - 8.7M/year",
     description:
-      "We are looking for a skilled Frontend Developer to join our team. You will be responsible for building user interfaces with React and modern web technologies.",
+      "We are looking for a skilled Frontend Developer to join our Kigali team. You will be responsible for building responsive user interfaces with React and modern web technologies.",
     requirements: [
       "3+ years React experience",
       "JavaScript/TypeScript",
       "CSS/SCSS",
       "Git",
     ],
-    postedDate: "2024-08-05",
-    applicationDeadline: "2024-09-15",
+    postedDate: "2025-08-05",
+    applicationDeadline: "2025-09-15",
   },
   {
     id: "2",
     title: "Backend Developer",
-    company: "StartupXYZ",
-    location: "New York, NY",
+    company: "HeHe Labs",
+    location: "Kigali, Rwanda",
     type: "Full-time",
-    salary: "$70,000 - $90,000",
+    salary: "RWF 7.5M - 9.8M/year",
     description:
-      "Join our growing startup as a Backend Developer. You will work on scalable APIs and server-side applications.",
+      "Join our growing team as a Backend Developer. You will work on scalable APIs and server-side applications that power digital commerce in Rwanda.",
     requirements: [
       "Node.js",
       "Express.js",
       "MongoDB/PostgreSQL",
       "RESTful APIs",
     ],
-    postedDate: "2024-08-07",
-    applicationDeadline: "2024-09-20",
+    postedDate: "2025-08-07",
+    applicationDeadline: "2025-09-20",
   },
   {
     id: "3",
     title: "UI/UX Designer",
-    company: "Design Studio",
-    location: "San Francisco, CA",
+    company: "Awesomity Lab",
+    location: "Kigali, Rwanda",
     type: "Contract",
-    salary: "$50/hour",
+    salary: "RWF 25K/hour",
     description:
-      "We need a creative UI/UX Designer to help us create amazing user experiences for our clients.",
+      "We need a creative UI/UX Designer to help us create amazing user experiences for fintech and e-commerce clients.",
     requirements: [
       "Figma/Sketch",
       "User Research",
       "Prototyping",
       "Design Systems",
     ],
-    postedDate: "2024-08-06",
-    applicationDeadline: "2024-09-10",
+    postedDate: "2025-08-06",
+    applicationDeadline: "2025-09-10",
+  },
+  {
+    id: "4",
+    title: "Mobile App Developer",
+    company: "Pivot Access",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 6M - 8M/year",
+    description:
+      "We are seeking a Mobile App Developer with experience in Flutter or React Native to build secure mobile banking solutions.",
+    requirements: [
+      "Flutter or React Native",
+      "RESTful APIs",
+      "State management (Bloc, Redux)",
+      "UI/UX principles",
+    ],
+    postedDate: "2025-08-10",
+    applicationDeadline: "2025-09-25",
+  },
+  {
+    id: "5",
+    title: "Data Analyst",
+    company: "BK Tech House",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 7.2M - 9M/year",
+    description:
+      "Analyze datasets from banking and mobile money platforms to provide insights for business decisions.",
+    requirements: [
+      "SQL",
+      "Python (Pandas, NumPy)",
+      "Data visualization tools",
+      "Strong analytical skills",
+    ],
+    postedDate: "2025-08-12",
+    applicationDeadline: "2025-09-28",
+  },
+  {
+    id: "6",
+    title: "IT Support Specialist",
+    company: "Irembo",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 4.8M - 6M/year",
+    description:
+      "Provide technical support for Irembo platform users and ensure smooth IT operations.",
+    requirements: [
+      "Computer hardware & networking",
+      "Customer service",
+      "Troubleshooting skills",
+      "Basic web technologies",
+    ],
+    postedDate: "2025-08-15",
+    applicationDeadline: "2025-09-30",
+  },
+  {
+    id: "7",
+    title: "Cloud Engineer",
+    company: "AOS Ltd",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 8M - 10.5M/year",
+    description:
+      "Manage cloud infrastructure for government digital services hosted on AWS and Azure.",
+    requirements: [
+      "AWS or Azure certification",
+      "Linux server management",
+      "Docker/Kubernetes",
+      "CI/CD pipelines",
+    ],
+    postedDate: "2025-08-16",
+    applicationDeadline: "2025-10-05",
+  },
+  {
+    id: "8",
+    title: "Cybersecurity Analyst",
+    company: "RISA",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 9M - 12M/year",
+    description:
+      "Monitor and protect Rwanda's digital infrastructure from cyber threats.",
+    requirements: [
+      "Network security",
+      "Incident response",
+      "Penetration testing",
+      "Security tools (SIEM, IDS/IPS)",
+    ],
+    postedDate: "2025-08-18",
+    applicationDeadline: "2025-10-08",
+  },
+  {
+    id: "9",
+    title: "Digital Marketing Specialist",
+    company: "Kasha Rwanda",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 4.5M - 6.5M/year",
+    description:
+      "Plan and execute online marketing campaigns for e-commerce platforms.",
+    requirements: [
+      "SEO/SEM",
+      "Social media ads",
+      "Content creation",
+      "Google Analytics",
+    ],
+    postedDate: "2025-08-20",
+    applicationDeadline: "2025-10-10",
+  },
+  {
+    id: "10",
+    title: "Machine Learning Engineer",
+    company: "Carnegie Mellon University Africa",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 10M - 14M/year",
+    description:
+      "Develop AI models for research and real-world applications in Rwanda.",
+    requirements: [
+      "Python (TensorFlow, PyTorch)",
+      "Data preprocessing",
+      "Model deployment",
+      "Research mindset",
+    ],
+    postedDate: "2025-07-22",
+    applicationDeadline: "2025-10-15",
+  },
+  {
+    id: "11",
+    title: "Cloud Engineer",
+    company: "AOS Ltd",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 8M - 10.5M/year",
+    description:
+      "Manage cloud infrastructure for government digital services hosted on AWS and Azure.",
+    requirements: [
+      "AWS or Azure certification",
+      "Linux server management",
+      "Docker/Kubernetes",
+      "CI/CD pipelines",
+    ],
+    postedDate: "2025-08-16",
+    applicationDeadline: "2025-10-05",
+  },
+  {
+    id: "12",
+    title: "Cybersecurity Analyst",
+    company: "RISA",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 9M - 12M/year",
+    description:
+      "Monitor and protect Rwanda's digital infrastructure from cyber threats.",
+    requirements: [
+      "Network security",
+      "Incident response",
+      "Penetration testing",
+      "Security tools (SIEM, IDS/IPS)",
+    ],
+    postedDate: "2025-08-18",
+    applicationDeadline: "2025-10-08",
+  },
+  {
+    id: "13",
+    title: "Digital Marketing Specialist",
+    company: "Kasha Rwanda",
+    location: "Kigali, Rwanda",
+    type: "Full-time",
+    salary: "RWF 4.5M - 6.5M/year",
+    description:
+      "Plan and execute online marketing campaigns for e-commerce platforms.",
+    requirements: [
+      "SEO/SEM",
+      "Social media ads",
+      "Content creation",
+      "Google Analytics",
+    ],
+    postedDate: "2025-08-20",
+    applicationDeadline: "2025-10-10",
   },
 ];
 
-// Load users from localStorage or use default if none exists
 const mockUsers = JSON.parse(localStorage.getItem("mockUsers")) || [
   {
     id: "1",
@@ -68,7 +247,6 @@ const mockUsers = JSON.parse(localStorage.getItem("mockUsers")) || [
   },
 ];
 
-// Load applications from localStorage or use empty array if none exists
 let applications = JSON.parse(localStorage.getItem("applications")) || [];
 
 export const handlers = [
@@ -115,7 +293,6 @@ export const handlers = [
 
     mockUsers.push(newUser);
 
-    // Save updated users to localStorage
     localStorage.setItem("mockUsers", JSON.stringify(mockUsers));
 
     return HttpResponse.json({
@@ -125,17 +302,14 @@ export const handlers = [
   }),
 
   http.get("/api/jobs", async ({ request }) => {
-    // Ensure we have a valid URL to parse
     const url = new URL(request.url);
 
-    // Get search parameters with defaults
     const page = parseInt(url.searchParams.get("page")) || 1;
     const limit = parseInt(url.searchParams.get("limit")) || 10;
     const search = url.searchParams.get("search") || "";
     const location = url.searchParams.get("location") || "";
     const type = url.searchParams.get("type") || "";
 
-    // Start with all jobs
     let filteredJobs = [...mockJobs];
 
     if (search) {
@@ -156,12 +330,10 @@ export const handlers = [
       filteredJobs = filteredJobs.filter((job) => job.type === type);
     }
 
-    // Calculate pagination
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
     const paginatedJobs = filteredJobs.slice(startIndex, endIndex);
 
-    // Return paginated results with metadata
     return HttpResponse.json(
       {
         jobs: paginatedJobs,
@@ -199,7 +371,7 @@ export const handlers = [
     };
 
     applications.push(newApplication);
-    // Save applications to localStorage
+
     localStorage.setItem("applications", JSON.stringify(applications));
 
     return HttpResponse.json(newApplication, { status: 201 });

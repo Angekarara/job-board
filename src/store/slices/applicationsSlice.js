@@ -4,7 +4,7 @@ const submitApplication = createAsyncThunk(
   "applications/submitApplication",
   async (applicationData, { rejectWithValue }) => {
     try {
-      const response = await fetch("api/applications", {
+      const response = await fetch("/api/applications", {
         method: "POST",
         headers: {
           "Content-Type": "applications/json",

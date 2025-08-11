@@ -33,7 +33,7 @@ const JobsPage = () => {
       <JobFilters />
       <JobList />
 
-      {/* Pagination */}
+
       {totalPages > 1 && (
         <div className="mt-8 flex justify-center items-center space-x-4">
           <Button

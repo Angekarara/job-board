@@ -162,7 +162,7 @@ const ApplicationForm = ({ job, onClose }) => {
           value={formData.phone}
           onChange={handleChange}
           error={errors.phone}
-          placeholder="(555) 123-4567"
+          placeholder="(250) 786 456 709"
         />
 
         <div className="mb-4">
@@ -231,20 +231,20 @@ const ApplicationForm = ({ job, onClose }) => {
 
         <div className="flex space-x-4 pt-4">
           <Button
-            type="submit"
-            loading={isLoading}
-            disabled={isLoading}
-            className="flex-1"
-          >
-            Submit Application
-          </Button>
-          <Button
             type="button"
             variant="secondary"
             onClick={onClose}
             className="flex-1"
           >
             Cancel
+          </Button>
+          <Button
+            type="submit"
+            loading={isLoading}
+            disabled={isLoading}
+            className="flex-1"
+          >
+            Submit Application
           </Button>
         </div>
       </form>

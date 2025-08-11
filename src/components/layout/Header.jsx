@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex justify-between items-center py-6">
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold text-primary">
-              JobBoard
+              ShakishaJob
             </Link>
           </div>
           <nav className="hidden md:flex space-x-8">

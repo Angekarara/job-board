@@ -37,7 +37,7 @@ const Modal = ({ isOpen, onClose, title, children, size = "md" }) => {
       <div
         className={`relative w-full mx-4 ${sizeClasses[size]} max-h-screen overflow-y-auto`}
       >
-        <div className="relative bg-white rounded-lg shadow-xl">
+        <div className="relative bg-accent rounded-lg shadow-xl">
           {title && (
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900">{title}</h3>

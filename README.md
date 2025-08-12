@@ -6,7 +6,8 @@ A modern job board application built with React, featuring job listings, search 
 
 https://www.loom.com/share/c4e75b20193c498d8a051dabd2ef64f3?sid=d4619976-e340-4ab6-8a65-69b97b7e9db4
 
-Responsiveness: https://www.loom.com/share/f20586be9ef54225a37cdf3d00b92c42
+#### Responsiveness:
+https://www.loom.com/share/f20586be9ef54225a37cdf3d00b92c42
 
 ## Features
 

@@ -115,7 +115,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-16 bg-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
@@ -140,38 +139,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      {/* <section className="py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Start Your Career Journey?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Join thousands of professionals who found their dream jobs through
-            our platform
-          </p>
-          <div className="space-x-4">
-            <Link to="/register">
-              <Button
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100"
-              >
-                Get Started
-              </Button>
-            </Link>
-            <Link to="/jobs">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="border-white text-white hover:bg-blue-700"
-              >
-                Browse Jobs
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 };

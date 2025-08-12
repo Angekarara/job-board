@@ -36,7 +36,6 @@ export const authService = {
   },
 
   async logout() {
-    // For mock API, just remove token from localStorage
     localStorage.removeItem("token");
     return Promise.resolve();
   },
@@ -46,8 +45,6 @@ export const authService = {
     if (!token) {
       throw new Error("No token found");
     }
-
-    // For mock API, we'll assume token is valid if it exists
     return Promise.resolve({ valid: true });
   },
 };

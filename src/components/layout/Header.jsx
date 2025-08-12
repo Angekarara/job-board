@@ -27,13 +27,13 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             <Link
               to="/"
-              className="text-tertiary hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
+              className="text-tertiary hover:text-primary px-3 py-2 rounded-md text-lg font-medium"
             >
               Home
             </Link>
             <Link
               to="/jobs"
-              className="text-tertiary hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
+              className="text-tertiary hover:text-primary px-3 py-2 rounded-md text-lg font-medium"
             >
               Jobs
             </Link>

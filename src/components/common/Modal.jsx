@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose, title, children, size = "md" }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto">
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+        className="fixed inset-0 bg-secondary bg-opacity-50 transition-opacity"
         onClick={onClose}
       />
       <div

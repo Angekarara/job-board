@@ -23,8 +23,8 @@ const mockJobs = [
     id: "2",
     title: "Backend Developer",
     company: "HeHe Labs",
-    location: "Kigali, Rwanda",
-    type: "Full-time",
+    location: "Muhanga, Rwanda",
+    type: "Contract",
     salary: "RWF 7.5M - 9.8M/year",
     description:
       "Join our growing team as a Backend Developer. You will work on scalable APIs and server-side applications that power digital commerce in Rwanda.",
@@ -59,8 +59,8 @@ const mockJobs = [
     id: "4",
     title: "Mobile App Developer",
     company: "Pivot Access",
-    location: "Kigali, Rwanda",
-    type: "Full-time",
+    location: "Rusizi, Rwanda",
+    type: "Part-time",
     salary: "RWF 6M - 8M/year",
     description:
       "We are seeking a Mobile App Developer with experience in Flutter or React Native to build secure mobile banking solutions.",
@@ -95,8 +95,8 @@ const mockJobs = [
     id: "6",
     title: "IT Support Specialist",
     company: "Irembo",
-    location: "Kigali, Rwanda",
-    type: "Full-time",
+    location: "Musanze, Rwanda",
+    type: "Part-time",
     salary: "RWF 4.8M - 6M/year",
     description:
       "Provide technical support for Irembo platform users and ensure smooth IT operations.",
@@ -114,7 +114,7 @@ const mockJobs = [
     title: "Cloud Engineer",
     company: "AOS Ltd",
     location: "Kigali, Rwanda",
-    type: "Full-time",
+    type: "Internship",
     salary: "RWF 8M - 10.5M/year",
     description:
       "Manage cloud infrastructure for government digital services hosted on AWS and Azure.",
@@ -131,7 +131,7 @@ const mockJobs = [
     id: "8",
     title: "Cybersecurity Analyst",
     company: "RISA",
-    location: "Kigali, Rwanda",
+    location: "Bugesera, Rwanda",
     type: "Full-time",
     salary: "RWF 9M - 12M/year",
     description:
@@ -150,7 +150,7 @@ const mockJobs = [
     title: "Digital Marketing Specialist",
     company: "Kasha Rwanda",
     location: "Kigali, Rwanda",
-    type: "Full-time",
+    type: "Contract",
     salary: "RWF 4.5M - 6.5M/year",
     description:
       "Plan and execute online marketing campaigns for e-commerce platforms.",
@@ -167,8 +167,8 @@ const mockJobs = [
     id: "10",
     title: "Machine Learning Engineer",
     company: "Carnegie Mellon University Africa",
-    location: "Kigali, Rwanda",
-    type: "Full-time",
+    location: "Gisenyi, Rwanda",
+    type: "Contract",
     salary: "RWF 10M - 14M/year",
     description:
       "Develop AI models for research and real-world applications in Rwanda.",
@@ -186,7 +186,7 @@ const mockJobs = [
     title: "Cloud Engineer",
     company: "AOS Ltd",
     location: "Kigali, Rwanda",
-    type: "Full-time",
+    type: "Part-time",
     salary: "RWF 8M - 10.5M/year",
     description:
       "Manage cloud infrastructure for government digital services hosted on AWS and Azure.",
@@ -204,7 +204,7 @@ const mockJobs = [
     title: "Cybersecurity Analyst",
     company: "RISA",
     location: "Kigali, Rwanda",
-    type: "Full-time",
+    type: "Part-time",
     salary: "RWF 9M - 12M/year",
     description:
       "Monitor and protect Rwanda's digital infrastructure from cyber threats.",

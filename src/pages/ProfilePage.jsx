@@ -17,7 +17,7 @@ const ProfilePage = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case "pending":
-        return "bg-yellow-100 text-yellow-800";
+        return "bg-[#e17654] text-white";
       case "accepted":
         return "bg-green-100 text-green-800";
       case "rejected":
@@ -70,7 +70,7 @@ const ProfilePage = () => {
               {applications.map((application) => (
                 <div
                   key={application.id}
-                  className="border border-gray-200 rounded-lg p-4"
+                  className="border border-gray-200 rounded-lg p-4 bg-secondary"
                 >
                   <div className="flex justify-between items-start">
                     <div>

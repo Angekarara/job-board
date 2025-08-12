@@ -49,7 +49,7 @@ const applicationsSlice = createSlice({
     error: null,
     success: null,
   },
-  reducer: {
+  reducers: {
     clearError: (state) => {
       state.error = null;
     },

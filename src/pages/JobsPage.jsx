@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchJobs } from "../store/slices/jobsSlice";
 import JobFilters from "../components/jobs/JobFilters";

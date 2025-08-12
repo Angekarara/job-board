@@ -78,11 +78,7 @@ The application is built with the following architecture:
    ```
 
    The application will be available at `http://localhost:5173`
-
-5. **Build for production**
-   ```bash
-   npm run build
-   ```
+   
 
 ## Testing
 

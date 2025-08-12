@@ -4,41 +4,45 @@ import Button from "../components/common/Button";
 const HomePage = () => {
   return (
     <div>
-  
       <section className="py-10 bg-gradient-to-r  from-accent to-amber-200 text-primary lg:flex lg:justify-between">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:text-start">
           <div className="text-center lg:text-start lg:w-3/4 lg:pl-28">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 ">
-              Search, Apply and get your <span className="text-[#e17654]">Dream Job</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+              Search, Apply and get your{" "}
+              <span className="text-[#e17654] animate-pulse">Dream Job</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-tertiary">
+            <p className="text-xl md:text-2xl mb-8 text-tertiary animate-fade-in-delay">
               Discover thousands of opportunities from top companies worldwide
             </p>
             <Link to="/jobs">
-              <Button size="lg">Browse Jobs</Button>
+              <Button
+                size="lg"
+                className="animate-fade-in-delay-2 hover:scale-105 transition-transform duration-300"
+              >
+                Browse Jobs
+              </Button>
             </Link>
           </div>
         </div>
         <div className="hidden lg:block lg:pr-9">
-          <img src="job-hunt.svg" alt="Job Hunt" />
+          <img src="job.svg" alt="Job Hunt" className="animate-float" />
         </div>
       </section>
 
-      
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 animate-fade-in">
               Why Choose ShakishaJob?
             </h2>
-            <p className="text-lg text-tertiary">
+            <p className="text-lg text-tertiary animate-fade-in-delay">
               We connect talented professionals with amazing opportunities
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-delay-2">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 hover:rotate-12 transition-transform duration-300">
                 <svg
                   className="w-8 h-8 text-blue-600"
                   fill="none"
@@ -62,8 +66,8 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-delay-3">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 hover:rotate-12 transition-transform duration-300">
                 <svg
                   className="w-8 h-8 text-[#115e59]"
                   fill="none"
@@ -87,8 +91,8 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-delay-4">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 hover:rotate-12 transition-transform duration-300">
                 <svg
                   className="w-8 h-8 text-purple-600"
                   fill="none"
@@ -118,21 +122,21 @@ const HomePage = () => {
       <section className="py-16 bg-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
+            <div className="animate-fade-in-delay-2 hover:scale-110 transition-transform duration-300">
               <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
               <div className="text-gray-600">Active Jobs</div>
             </div>
-            <div>
+            <div className="animate-fade-in-delay-3 hover:scale-110 transition-transform duration-300">
               <div className="text-4xl font-bold text-green-600 mb-2">500+</div>
               <div className="text-gray-600">Companies</div>
             </div>
-            <div>
+            <div className="animate-fade-in-delay-4 hover:scale-110 transition-transform duration-300">
               <div className="text-4xl font-bold text-purple-600 mb-2">
                 10K+
               </div>
               <div className="text-gray-600">Job Seekers</div>
             </div>
-            <div>
+            <div className="animate-fade-in-delay-5 hover:scale-110 transition-transform duration-300">
               <div className="text-4xl font-bold text-red-600 mb-2">95%</div>
               <div className="text-gray-600">Success Rate</div>
             </div>

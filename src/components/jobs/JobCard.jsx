@@ -11,16 +11,16 @@ const JobCard = ({ job }) => {
   };
 
   return (
-    <div className="bg-accent rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+    <div className="bg-accent rounded-lg shadow-md p-6 hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105 animate-fade-in">
       <div className="flex justify-between items-start mb-4">
         <div>
-          <h3 className="text-xl font-semibold text-primary mb-2">
+          <h3 className="text-xl font-semibold text-primary mb-2 hover:text-[#e17654] transition-colors duration-300">
             {job.title}
           </h3>
           <p className="text-primary mb-1">{job.company}</p>
           <p className="text-sm text-tertiary">{job.location}</p>
         </div>
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e17654] text-secondary">
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#e17654] text-secondary hover:bg-[#d16543] transition-colors duration-300">
           {job.type}
         </span>
       </div>
@@ -37,7 +37,12 @@ const JobCard = ({ job }) => {
           </p>
         </div>
         <Link to={`/jobs/${job.id}`}>
-          <Button size="sm">View Details</Button>
+          <Button
+            size="sm"
+            className="hover:scale-105 transition-transform duration-300"
+          >
+            View Details
+          </Button>
         </Link>
       </div>
     </div>

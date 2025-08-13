@@ -23,7 +23,7 @@ const JobList = () => {
     );
   }
 
-  if (jobs.length === 0) {
+  if (!Array.isArray(jobs) || jobs.length === 0) {
     return (
       <div className="text-center py-12">
         <div className="text-primary text-lg">No jobs found</div>

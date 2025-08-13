@@ -94,13 +94,21 @@ const ApplicationForm = ({ job, onClose }) => {
       return;
     }
 
-    const applicationData = {
-      ...formData,
-      userId: user.id, // Ensure user ID is included
-      resumeFileName: formData.resume?.name || null,
-    };
+    try {
+      const applicationData = {
+        ...formData,
+        resumeFileName: formData.resume?.name || null,
+        status: "pending",
+        applicationDate: new Date().toISOString(),
+      };
 
-    dispatch(submitApplication(applicationData));
+      dispatch(submitApplication(applicationData));
+    } catch (error) {
+      dispatch({
+        type: "applications/submitApplication/rejected",
+        payload: error.message || "Failed to process application",
+      });
+    }
   };
 
   const handleErrorDismiss = () => {

@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { logout } from "../../store/slices/authSlice";
@@ -41,7 +40,7 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             {isAuthenticated ? (
               <>
-                <span className="text-primary">Welcome, {user?.name}</span>
+                <span className="text-primary hidden lg:block">Welcome, {user?.name}</span>
                 <Link
                   to="/profile"
                   className="text-tertiary hover:text-primary"

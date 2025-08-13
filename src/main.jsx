@@ -6,12 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/index.js";
 
-async function startApp() {
-  if (import.meta.env.DEV) {
-    const { worker } = await import("./mocks/browser");
-    await worker.start();
-  }
-
+function startApp() {
   createRoot(document.getElementById("root")).render(
     <StrictMode>
       <Provider store={store}>

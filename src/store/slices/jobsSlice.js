@@ -1,17 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import { jobsService } from "../../services/jobsService";
+
 const fetchJobs = createAsyncThunk(
   "jobs/fetchJobs",
   async (params = {}, { rejectWithValue }) => {
     try {
-      const queryParams = new URLSearchParams(params).toString();
-      const response = await fetch(`/api/jobs?${queryParams}`);
-
-      if (!response.ok) {
-        throw new Error("failed to fetch");
-      }
-
-      const data = await response.json();
+      const data = await jobsService.getJobs(params);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -23,13 +18,7 @@ const fetchJobById = createAsyncThunk(
   "jobs/fetchJobById",
   async (jobId, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/jobs/${jobId}`);
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch job details");
-      }
-
-      const data = await response.json();
+      const data = await jobsService.getJobById(jobId);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -80,10 +69,9 @@ const jobSlice = createSlice({
       })
       .addCase(fetchJobs.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.jobs = action.payload.jobs;
-        state.total = action.payload.total;
-        state.currentJob = action.payload.currentJob;
-        state.totalPages = action.payload.totalPages;
+        state.jobs = action.payload;
+        state.total = action.payload.length;
+        state.totalPages = Math.ceil(action.payload.length / 10);
         state.error = null;
       })
       .addCase(fetchJobs.rejected, (state, action) => {

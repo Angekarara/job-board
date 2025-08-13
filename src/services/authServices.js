@@ -1,38 +1,73 @@
-const API_BASE_URL = "/api";
+const API_BASE_URL = "http://localhost:8000";
 
 export const authService = {
   async login(credentials) {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/users?email=${credentials.email}`
+      );
+      const users = await response.json();
 
-    if (!response.ok) {
-      const error = await response.json();
+      if (users.length === 0) {
+        throw new Error("Invalid credentials");
+      }
+
+      const user = users[0];
+      if (user.password !== credentials.password) {
+        throw new Error("Invalid credentials");
+      }
+
+      return {
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+        },
+      };
+    } catch (error) {
       throw new Error(error.message || "Login failed");
     }
-
-    return await response.json();
   },
 
   async register(userData) {
-    const response = await fetch(`${API_BASE_URL}/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+    try {
+      const checkResponse = await fetch(
+        `${API_BASE_URL}/users?email=${userData.email}`
+      );
+      const existingUsers = await checkResponse.json();
 
-    if (!response.ok) {
-      const error = await response.json();
+      if (existingUsers.length > 0) {
+        throw new Error("User already exists");
+      }
+
+      const response = await fetch(`${API_BASE_URL}/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Registration failed");
+      }
+
+      const newUser = await response.json();
+      const token = btoa(
+        JSON.stringify({ userId: newUser.id, email: newUser.email })
+      );
+
+      return {
+        user: {
+          id: newUser.id,
+          name: newUser.name,
+          email: newUser.email,
+        },
+        token,
+      };
+    } catch (error) {
       throw new Error(error.message || "Registration failed");
     }
-
-    return await response.json();
   },
 
   async logout() {

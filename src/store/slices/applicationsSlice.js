@@ -1,22 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import { applicationsService } from "../../services/applicationsService";
+
 const submitApplication = createAsyncThunk(
   "applications/submitApplication",
   async (applicationData, { rejectWithValue }) => {
     try {
-      const response = await fetch("/api/applications", {
-        method: "POST",
-        headers: {
-          "Content-Type": "applications/json",
-        },
-        body: JSON.stringify(applicationData),
-      });
-
-      if (!response.ok) {
-        throw new Error("failed to submit application");
-      }
-
-      const data = await response.json();
+      const data = await applicationsService.submitApplication(applicationData);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -28,17 +18,7 @@ const fetchApplications = createAsyncThunk(
   "applications/fetchApplications",
   async (userId, { rejectWithValue }) => {
     try {
-      const token = localStorage.getItem("token");
-      const response = await fetch(`api/applications?userId=${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("failed to fetch applications");
-      }
-      const data = await response.json();
+      const data = await applicationsService.getApplications(userId);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

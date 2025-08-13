@@ -366,7 +366,7 @@ export const handlers = [
     const newApplication = {
       id: String(applications.length + 1),
       ...applicationData,
-      userId: applicationData.userId, // Ensure userId is included
+      userId: applicationData.userId,
       status: "pending",
       appliedDate: new Date().toISOString(),
     };
@@ -389,6 +389,6 @@ export const handlers = [
       return HttpResponse.json(userApplications);
     }
 
-    return HttpResponse.json([]); // Return empty array if no userId provided
+    return HttpResponse.json([]); 
   }),
 ];

@@ -7,7 +7,7 @@ import Button from "../components/common/Button";
 
 const JobsPage = () => {
   const dispatch = useDispatch();
-  const { currentPage, totalPages, total, filters } = useSelector(
+  const { currentPage, totalPages, total, filters, isLoading } = useSelector(
     (state) => state.jobs
   );
 
@@ -16,7 +16,17 @@ const JobsPage = () => {
   }, [dispatch]);
 
   const handlePageChange = (newPage) => {
-    dispatch(fetchJobs({ ...filters, page: newPage }));
+    if (newPage >= 1 && newPage <= totalPages) {
+      dispatch(fetchJobs({ ...filters, page: newPage }));
+    }
+  };
+
+  const getPageNumbers = () => {
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(i);
+    }
+    return pages;
   };
 
   return (
@@ -34,38 +44,42 @@ const JobsPage = () => {
       <JobList />
 
       {totalPages > 1 && (
-        <div className="mt-8 flex justify-center items-center space-x-4">
-          <Button
-            variant="secondary"
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-          >
-            Previous
-          </Button>
+        <div className="mt-8">
+          <div className="flex justify-center items-center space-x-4">
+            <Button
+              variant="secondary"
+              disabled={currentPage === 1 || isLoading}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              Previous
+            </Button>
 
-          <div className="flex space-x-2">
-            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-              const page = i + 1;
-              return (
+            <div className="flex space-x-2">
+              {getPageNumbers().map((page) => (
                 <Button
                   key={page}
                   variant={currentPage === page ? "primary" : "secondary"}
                   onClick={() => handlePageChange(page)}
                   size="sm"
+                  disabled={isLoading}
                 >
                   {page}
                 </Button>
-              );
-            })}
+              ))}
+            </div>
+
+            <Button
+              variant="secondary"
+              disabled={currentPage === totalPages || isLoading}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              Next
+            </Button>
           </div>
 
-          <Button
-            variant="secondary"
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(currentPage + 1)}
-          >
-            Next
-          </Button>
+          <div className="text-center mt-4 text-sm text-tertiary">
+            Page {currentPage} of {totalPages} • Showing {total} total jobs
+          </div>
         </div>
       )}
     </div>

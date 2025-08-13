@@ -34,7 +34,14 @@ export const jobsService = {
       const page = params.page || 1;
       const limit = 10;
       const start = (page - 1) * limit;
-      return jobs.slice(start, start + limit);
+      const paginatedJobs = jobs.slice(start, start + limit);
+
+      return {
+        jobs: paginatedJobs,
+        total: jobs.length,
+        totalPages: Math.ceil(jobs.length / limit),
+        currentPage: page,
+      };
     } catch (error) {
       console.error("Error fetching jobs:", error);
       throw error;

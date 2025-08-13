@@ -69,9 +69,10 @@ const jobSlice = createSlice({
       })
       .addCase(fetchJobs.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.jobs = action.payload;
-        state.total = action.payload.length;
-        state.totalPages = Math.ceil(action.payload.length / 10);
+        state.jobs = action.payload.jobs;
+        state.total = action.payload.total;
+        state.totalPages = action.payload.totalPages;
+        state.currentPage = action.payload.currentPage;
         state.error = null;
       })
       .addCase(fetchJobs.rejected, (state, action) => {

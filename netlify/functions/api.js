@@ -1,62 +1,70 @@
-const jsonServer = require('json-server');
-const path = require('path');
+import jsonServer from "json-server";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
-// Create JSON Server
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, '../data/db.json'));
+const router = jsonServer.router(join(__dirname, "../data/db.json"));
 const middlewares = jsonServer.defaults();
 
-// Use middlewares
+
 server.use(middlewares);
 
-// Add CORS headers
+
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+  );
   next();
 });
 
-// Use router
+
 server.use(router);
 
-// Export for Netlify
-exports.handler = async (event, context) => {
-  // Handle CORS preflight
-  if (event.httpMethod === 'OPTIONS') {
+export const handler = async (event) => {
+
+  if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS'
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers":
+          "Origin, X-Requested-With, Content-Type, Accept",
+        "Access-Control-Allow-Methods":
+          "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       },
-      body: ''
+      body: "",
     };
   }
 
-  // Convert Netlify event to Express-like request
   const req = {
     method: event.httpMethod,
-    url: event.path.replace('/.netlify/functions/api', ''),
+    url: event.path.replace("/.netlify/functions/api", ""),
     headers: event.headers,
-    body: event.body
+    body: event.body,
   };
 
   const res = {
     statusCode: 200,
     headers: {},
-    body: '',
+    body: "",
     setHeader: (name, value) => {
       res.headers[name] = value;
     },
     json: (data) => {
       res.body = JSON.stringify(data);
-      res.headers['Content-Type'] = 'application/json';
-    }
+      res.headers["Content-Type"] = "application/json";
+    },
   };
 
-  // Handle the request
   try {
     await new Promise((resolve, reject) => {
       server(req, res, (err) => {
@@ -68,16 +76,16 @@ exports.handler = async (event, context) => {
     return {
       statusCode: res.statusCode || 200,
       headers: res.headers,
-      body: res.body
+      body: res.body,
     };
   } catch (error) {
     return {
       statusCode: 500,
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({ error: error.message })
+      body: JSON.stringify({ error: error.message }),
     };
   }
 };

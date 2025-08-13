@@ -26,9 +26,14 @@ const submitApplication = createAsyncThunk(
 
 const fetchApplications = createAsyncThunk(
   "applications/fetchApplications",
-  async (_, { rejectWithValue }) => {
+  async (userId, { rejectWithValue }) => {
     try {
-      const response = await fetch("api/applications");
+      const token = localStorage.getItem("token");
+      const response = await fetch(`api/applications?userId=${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (!response.ok) {
         throw new Error("failed to fetch applications");

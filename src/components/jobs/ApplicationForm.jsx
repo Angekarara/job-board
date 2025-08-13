@@ -21,6 +21,7 @@ const ApplicationForm = ({ job, onClose }) => {
     jobId: job.id,
     jobTitle: job.title,
     company: job.company,
+    userId: user?.id,
     applicantName: user?.name || "",
     applicantEmail: user?.email || "",
     phone: "",
@@ -95,6 +96,7 @@ const ApplicationForm = ({ job, onClose }) => {
 
     const applicationData = {
       ...formData,
+      userId: user.id, // Ensure user ID is included
       resumeFileName: formData.resume?.name || null,
     };
 

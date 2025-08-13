@@ -17,8 +17,10 @@ export const applicationsService = {
     return await response.json();
   },
 
-  async getApplications() {
-    const response = await fetch(`${API_BASE_URL}/applications`);
+  async getApplications(userId) {
+    const response = await fetch(
+      `${API_BASE_URL}/applications?userId=${userId}`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch applications");

@@ -11,8 +11,10 @@ const ProfilePage = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchApplications());
-  }, [dispatch]);
+    if (user?.id) {
+      dispatch(fetchApplications(user.id));
+    }
+  }, [dispatch, user?.id]);
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -32,7 +34,6 @@ const ProfilePage = () => {
       <div className="bg-accent rounded-lg shadow-md p-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Profile</h1>
 
-        
         <div className="mb-8">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">
             Personal Information
@@ -53,7 +54,6 @@ const ProfilePage = () => {
           </div>
         </div>
 
-       
         <div>
           <h2 className="text-xl font-semibold text-gray-900 mb-4">
             My Applications ({applications.length})

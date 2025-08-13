@@ -366,6 +366,7 @@ export const handlers = [
     const newApplication = {
       id: String(applications.length + 1),
       ...applicationData,
+      userId: applicationData.userId, // Ensure userId is included
       status: "pending",
       appliedDate: new Date().toISOString(),
     };
@@ -377,7 +378,17 @@ export const handlers = [
     return HttpResponse.json(newApplication, { status: 201 });
   }),
 
-  http.get("/api/applications", () => {
-    return HttpResponse.json(applications);
+  http.get("/api/applications", ({ request }) => {
+    const url = new URL(request.url);
+    const userId = url.searchParams.get("userId");
+
+    if (userId) {
+      const userApplications = applications.filter(
+        (app) => String(app.userId) === String(userId)
+      );
+      return HttpResponse.json(userApplications);
+    }
+
+    return HttpResponse.json([]); // Return empty array if no userId provided
   }),
 ];

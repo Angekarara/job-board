@@ -10,8 +10,8 @@ const getApiBaseUrl = () => {
     return import.meta.env.VITE_API_BASE_URL;
   }
   
-  // Fallback to a free JSON hosting service
-  return "https://my-json-server.typicode.com/Angekarara/job-board-db";
+  // Production API URL - Netlify Functions
+  return "/api";
 };
 
 export const API_BASE_URL = getApiBaseUrl();

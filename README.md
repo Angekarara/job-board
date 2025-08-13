@@ -9,6 +9,9 @@ https://www.loom.com/share/c4e75b20193c498d8a051dabd2ef64f3?sid=d4619976-e340-4a
 #### Responsiveness:
 https://www.loom.com/share/f20586be9ef54225a37cdf3d00b92c42
 
+### Deployed link: 
+https://shakishajob.netlify.app/
+
 ## Features
 
 - 🔍 Advanced job search and filtering
@@ -41,13 +44,12 @@ The application is built with the following architecture:
 - `store/` - Redux store and slices
 - `services/` - API service layer
 - `utils/` - Utility functions and constants
-- `mocks/` - Mock Service Worker setup for development
 
 ### State Management
 
 - Redux Toolkit for global state
 - Local state with React hooks
-- Mock Service Worker for API mocking
+- JSON Server for simulating backend
 
 ## Setup Instructions
 
@@ -64,12 +66,6 @@ The application is built with the following architecture:
    npm install
    ```
 
-3. **Environment Setup**
-   Create a `.env` file in the root directory:
-
-   ```
-   VITE_API_BASE_URL=your_api_url_here
-   ```
 
 4. **Start the development server**
 
@@ -96,7 +92,6 @@ npm run test
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - `npm run test` - Run tests
-- `npm run lint` - Run ESLint
 
 ## Deployment
 

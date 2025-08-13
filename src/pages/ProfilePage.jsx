@@ -80,7 +80,15 @@ const ProfilePage = () => {
                       <p className="text-gray-600">{application.company}</p>
                       <p className="text-sm text-gray-500">
                         Applied:{" "}
-                        {new Date(application.appliedDate).toLocaleDateString()}
+                        {new Date(
+                          application.applicationDate
+                        ).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
                       </p>
                     </div>
                     <span
